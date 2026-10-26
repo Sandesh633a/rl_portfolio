@@ -30,7 +30,7 @@ export default function TickerInput({ tickers, onChange, disabled }) {
       {/* Input row */}
       <div style={{ display: 'flex', gap: 8 }}>
         <input
-          className="input-field"
+          className="field"
           value={inputVal}
           onChange={e => { setInputVal(e.target.value); setError(''); }}
           onKeyDown={handleKey}
@@ -38,40 +38,40 @@ export default function TickerInput({ tickers, onChange, disabled }) {
           disabled={disabled}
         />
         <button
-          className="btn-primary"
+          className="btn btn-primary"
           onClick={addTicker}
           disabled={disabled || tickers.length >= 10}
-          style={{ borderRadius: 10, padding: '10px 18px', display: 'flex', alignItems: 'center', gap: 6, whiteSpace: 'nowrap', fontSize: 14 }}
+          style={{ borderRadius: 10, padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 5, whiteSpace: 'nowrap', fontSize: 13 }}
         >
-          <Plus size={16} />
+          <Plus size={15} />
           Add
         </button>
       </div>
 
       {/* Error */}
       {error && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8, color: '#f87171', fontSize: 13 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 8, color: 'var(--coral)', fontSize: 13 }}>
           <AlertCircle size={13} />
           {error}
         </div>
       )}
 
       {/* Ticker count indicator */}
-      <div style={{ fontSize: 12, color: '#475569', marginTop: 6 }}>
+      <div style={{ fontSize: 12, color: 'var(--text-dim)', marginTop: 6 }}>
         {tickers.length} / 10 tickers added
-        {tickers.length < 3 && <span style={{ color: '#f59e0b', marginLeft: 8 }}>⚠ Minimum 3 required</span>}
+        {tickers.length < 3 && <span style={{ color: 'var(--amber)', marginLeft: 8 }}>⚠ Minimum 3 required</span>}
       </div>
 
       {/* Tags */}
       {tickers.length > 0 && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 14 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginTop: 12 }}>
           {tickers.map(ticker => (
-            <div key={ticker} className="ticker-tag">
+            <div key={ticker} className="tag">
               {ticker}
               {!disabled && (
                 <button
                   onClick={() => removeTicker(ticker)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#60a5fa', display: 'flex', padding: 0 }}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--b400)', display: 'flex', padding: 0 }}
                 >
                   <X size={12} />
                 </button>
@@ -84,7 +84,7 @@ export default function TickerInput({ tickers, onChange, disabled }) {
       {/* Quick presets */}
       {!disabled && tickers.length === 0 && (
         <div style={{ marginTop: 14 }}>
-          <div style={{ fontSize: 12, color: '#475569', marginBottom: 8 }}>Quick presets:</div>
+          <div style={{ fontSize: 12, color: 'var(--text-dim)', marginBottom: 8 }}>Quick presets:</div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {[
               ['RELIANCE.NS', 'TCS.NS', 'INFY.NS', 'HDFCBANK.NS', 'WIPRO.NS'],
@@ -92,7 +92,7 @@ export default function TickerInput({ tickers, onChange, disabled }) {
             ].map((preset, i) => (
               <button
                 key={i}
-                className="btn-ghost"
+                className="btn btn-ghost"
                 onClick={() => onChange(preset)}
                 style={{ fontSize: 12, padding: '5px 12px', borderRadius: 8 }}
               >

@@ -14,9 +14,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="ocean-bg" style={{ display:'flex', minHeight:'100vh' }}>
+      <div className="app-bg" style={{ display:'flex', minHeight:'100vh' }}>
         <Navbar />
-        <main style={{ flex:1, padding:'30px 34px', overflowY:'auto', maxWidth:'calc(100vw - 210px)' }}>
+        <main style={{ flex:1, padding:'28px 36px', overflowY:'auto', maxWidth:'calc(100vw - 240px)' }}>
           <Routes>
             <Route path="/"         element={<Dashboard  result={result} />} />
             <Route path="/pipeline" element={<PipelinePage onResult={setResult} />} />
